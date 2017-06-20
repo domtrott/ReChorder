@@ -17,19 +17,28 @@ public class Song extends GenericJson{
 	@Key("body")
 	private String chordString;
 	
-	private List<Chords> chords = chordFinder(chordString);
+	private List<Integer> chords = chordFinder(chordString);
 
-	private List<Chords> chordFinder(String chordString) {
+	private List<Integer> chordFinder(String chordString) {
 		boolean isChord = false;
-		ArrayList<Chords> chords = new ArrayList<Chords>();
+		ArrayList<Integer> chords = new ArrayList<Integer>();
+		String currentChord = "";
 		for(int i = 0; i < chordString.length(); i++){
 			char c = chordString.charAt(i);
 			if(isChord){
 				if(c == ']'){
 					isChord = false;
+					int newChord = Chords.chordNumber(currentChord);
+					if(newChord == Chords.INVALID){
+						System.out.println("Invalid chord found: " + currentChord);
+						return chords;
+					}
+					else{
+						chords.add(newChord);
+					}
 				}
 				else{
-					
+					currentChord += c;
 				}
 			}
 			if(c == '['){
