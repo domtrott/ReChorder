@@ -29,6 +29,26 @@ public class ReChorder {
 		    request.setHeaders(headers);
 		    HttpResponse response = request.execute();
 		    System.out.println(response.parseAsString());
+		    parseResponse(response);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static void parseResponse(HttpResponse response){
+		try {
+			SongFeed feed = response.parseAs(SongFeed.class);
+			if (feed.getSongs().isEmpty()) {
+				System.out.println("No activities found.");
+			} else {
+				for (Song song : feed.getSongs()) {
+					System.out.println();
+					for(Integer i : song.getChords()){
+						System.out.println(i);
+					}
+				}
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

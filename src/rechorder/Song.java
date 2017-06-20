@@ -41,11 +41,15 @@ public class Song extends GenericJson{
 					currentChord += c;
 				}
 			}
-			if(c == '['){
+			else if(c == '['){
 				isChord = true;
 			}
 		}
 		
+		return chords;
+	}
+	
+	public List<Integer> getChords(){
 		return chords;
 	}
 }
