@@ -10,7 +10,7 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 
-public class Chorder {
+public class ReChorder {
 
 	private static final String KEY = "c045b8ee6df977bcda033b8b2f7090ae08b93cd3";
 	private static final String URL = "http://api.guitarparty.com/v2/songs/?query=";
