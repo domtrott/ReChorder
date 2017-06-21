@@ -154,6 +154,8 @@ public class Chords{
 				return Chords.A;
 			case "Am":
 				return Chords.A_M;
+			case "Amin":
+				return Chords.A_M;
 			case "A6":
 				return Chords.A_6;
 			case "A7":
@@ -166,6 +168,8 @@ public class Chords{
 				return Chords.A_M_7;
 			case "Amaj7":
 				return Chords.A_MAJ_7;
+			case "AM7":
+				return Chords.A_MAJ_7;
 			case "Adim":
 				return Chords.A_DIM;
 			case "Aaug":
@@ -174,9 +178,13 @@ public class Chords{
 				return Chords.A_AUG;
 			case "Asus":
 				return Chords.A_SUS;
+			case "Asus4":
+				return Chords.A_SUS;
 			case "A#":
 				return Chords.B_FLAT;
 			case "A#m":
+				return Chords.B_FLAT_M;
+			case "A#min":
 				return Chords.B_FLAT_M;
 			case "A#6":
 				return Chords.B_FLAT_6;
@@ -190,6 +198,8 @@ public class Chords{
 				return Chords.B_FLAT_M_7;
 			case "A#maj7":
 				return Chords.B_FLAT_MAJ_7;
+			case "A#M7":
+				return Chords.B_FLAT_MAJ_7;
 			case "A#dim":
 				return Chords.B_FLAT_DIM;
 			case "A#aug":
@@ -198,9 +208,13 @@ public class Chords{
 				return Chords.B_FLAT_AUG;
 			case "A#sus":
 				return Chords.B_FLAT_SUS;
+			case "A#sus4":
+				return Chords.B_FLAT_SUS;
 			case "Ab":
 				return Chords.A_FLAT;
 			case "Abm":
+				return Chords.G_SHARP_M;
+			case "Abmin":
 				return Chords.G_SHARP_M;
 			case "Ab6":
 				return Chords.A_FLAT_6;
@@ -214,6 +228,8 @@ public class Chords{
 				return Chords.G_SHARP_M_7;
 			case "Abmaj7":
 				return Chords.A_FLAT_MAJ_7;
+			case "AbM7":
+				return Chords.A_FLAT_MAJ_7;
 			case "Abdim":
 				return Chords.G_SHARP_DIM;
 			case "Abaug":
@@ -222,6 +238,8 @@ public class Chords{
 				return Chords.A_FLAT_AUG;
 			case "Absus":
 				return Chords.A_FLAT_SUS;
+			case "Absus4":
+				return Chords.A_FLAT_SUS;
 			}
 		}
 		else if(chord.charAt(0) == 'B'){
@@ -229,6 +247,8 @@ public class Chords{
 			case "B":
 				return Chords.B;
 			case "Bm":
+				return Chords.B_M;
+			case "Bmin":
 				return Chords.B_M;
 			case "B6":
 				return Chords.B_6;
@@ -242,6 +262,8 @@ public class Chords{
 				return Chords.B_M_7;
 			case "Bmaj7":
 				return Chords.B_MAJ_7;
+			case "BM7":
+				return Chords.B_MAJ_7;
 			case "Bdim":
 				return Chords.B_DIM;
 			case "Baug":
@@ -250,9 +272,13 @@ public class Chords{
 				return Chords.B_AUG;
 			case "Bsus":
 				return Chords.B_SUS;
+			case "Bsus4":
+				return Chords.B_SUS;
 			case "B#":
 				return Chords.C;
 			case "B#m":
+				return Chords.C_M;
+			case "B#min":
 				return Chords.C_M;
 			case "B#6":
 				return Chords.C_6;
@@ -266,6 +292,8 @@ public class Chords{
 				return Chords.C_M_7;
 			case "B#maj7":
 				return Chords.C_MAJ_7;
+			case "B#M7":
+				return Chords.C_MAJ_7;
 			case "B#dim":
 				return Chords.C_DIM;
 			case "B#aug":
@@ -274,9 +302,13 @@ public class Chords{
 				return Chords.C_AUG;
 			case "B#sus":
 				return Chords.C_SUS;
+			case "B#sus4":
+				return Chords.C_SUS;
 			case "Bb":
 				return Chords.B_FLAT;
 			case "Bbm":
+				return Chords.B_FLAT_M;
+			case "Bbmin":
 				return Chords.B_FLAT_M;
 			case "Bb6":
 				return Chords.B_FLAT_6;
@@ -290,6 +322,8 @@ public class Chords{
 				return Chords.B_FLAT_M_7;
 			case "Bbmaj7":
 				return Chords.B_FLAT_MAJ_7;
+			case "BbM7":
+				return Chords.B_FLAT_MAJ_7;
 			case "Bbdim":
 				return Chords.B_FLAT_DIM;
 			case "Bbaug":
@@ -298,6 +332,8 @@ public class Chords{
 				return Chords.B_FLAT_AUG;
 			case "Bbsus":
 				return Chords.B_FLAT_SUS;
+			case "Bbsus4":
+				return Chords.B_FLAT_SUS;
 			}
 		}
 		else if(chord.charAt(0) == 'C'){
@@ -305,6 +341,8 @@ public class Chords{
 			case "C":
 				return Chords.C;
 			case "Cm":
+				return Chords.C_M;
+			case "Cmin":
 				return Chords.C_M;
 			case "C6":
 				return Chords.C_6;
@@ -318,6 +356,8 @@ public class Chords{
 				return Chords.C_M_7;
 			case "Cmaj7":
 				return Chords.C_MAJ_7;
+			case "CM7":
+				return Chords.C_MAJ_7;
 			case "Cdim":
 				return Chords.C_DIM;
 			case "Caug":
@@ -326,9 +366,13 @@ public class Chords{
 				return Chords.C_AUG;
 			case "Csus":
 				return Chords.C_SUS;
+			case "Csus4":
+				return Chords.C_SUS;
 			case "C#":
 				return Chords.D_FLAT;
 			case "C#m":
+				return Chords.C_SHARP_M;
+			case "C#min":
 				return Chords.C_SHARP_M;
 			case "C#6":
 				return Chords.D_FLAT_6;
@@ -342,6 +386,8 @@ public class Chords{
 				return Chords.C_SHARP_M_7;
 			case "C#maj7":
 				return Chords.D_FLAT_MAJ_7;
+			case "C#M7":
+				return Chords.D_FLAT_MAJ_7;
 			case "C#dim":
 				return Chords.C_SHARP_DIM;
 			case "C#aug":
@@ -350,9 +396,13 @@ public class Chords{
 				return Chords.D_FLAT_AUG;
 			case "C#sus":
 				return Chords.D_FLAT_SUS;
+			case "C#sus4":
+				return Chords.D_FLAT_SUS;
 			case "Cb":
 				return Chords.B;
 			case "Cbm":
+				return Chords.B_M;
+			case "Cbmin":
 				return Chords.B_M;
 			case "Cb6":
 				return Chords.B_6;
@@ -366,6 +416,8 @@ public class Chords{
 				return Chords.B_M_7;
 			case "Cbmaj7":
 				return Chords.B_MAJ_7;
+			case "CbM7":
+				return Chords.B_MAJ_7;
 			case "Cbdim":
 				return Chords.B_DIM;
 			case "Cbaug":
@@ -374,6 +426,8 @@ public class Chords{
 				return Chords.B_AUG;
 			case "Cbsus":
 				return Chords.B_SUS;
+			case "Cbsus4":
+				return Chords.B_SUS;
 			}
 		}
 		else if(chord.charAt(0) == 'D'){
@@ -381,6 +435,8 @@ public class Chords{
 			case "D":
 				return Chords.D;
 			case "Dm":
+				return Chords.D_M;
+			case "Dmin":
 				return Chords.D_M;
 			case "D6":
 				return Chords.D_6;
@@ -394,6 +450,8 @@ public class Chords{
 				return Chords.D_M_7;
 			case "Dmaj7":
 				return Chords.D_MAJ_7;
+			case "DM7":
+				return Chords.D_MAJ_7;
 			case "Ddim":
 				return Chords.D_DIM;
 			case "Daug":
@@ -402,9 +460,13 @@ public class Chords{
 				return Chords.D_AUG;
 			case "Dsus":
 				return Chords.D_SUS;
+			case "Dsus4":
+				return Chords.D_SUS;
 			case "D#":
 				return Chords.E_FLAT;
 			case "D#m":
+				return Chords.E_FLAT_M;
+			case "D#min":
 				return Chords.E_FLAT_M;
 			case "D#6":
 				return Chords.E_FLAT_6;
@@ -418,6 +480,8 @@ public class Chords{
 				return Chords.E_FLAT_M_7;
 			case "D#maj7":
 				return Chords.E_FLAT_MAJ_7;
+			case "D#M7":
+				return Chords.E_FLAT_MAJ_7;
 			case "D#dim":
 				return Chords.E_FLAT_DIM;
 			case "D#aug":
@@ -426,9 +490,13 @@ public class Chords{
 				return Chords.E_FLAT_AUG;
 			case "D#sus":
 				return Chords.E_FLAT_SUS;
+			case "D#sus4":
+				return Chords.E_FLAT_SUS;
 			case "Db":
 				return Chords.D_FLAT;
 			case "Dbm":
+				return Chords.C_SHARP_M;
+			case "Dbmin":
 				return Chords.C_SHARP_M;
 			case "Db6":
 				return Chords.D_FLAT_6;
@@ -442,6 +510,8 @@ public class Chords{
 				return Chords.C_SHARP_M_7;
 			case "Dbmaj7":
 				return Chords.D_FLAT_MAJ_7;
+			case "DbM7":
+				return Chords.D_FLAT_MAJ_7;
 			case "Dbdim":
 				return Chords.C_SHARP_DIM;
 			case "Dbaug":
@@ -450,6 +520,8 @@ public class Chords{
 				return Chords.D_FLAT_AUG;
 			case "Dbsus":
 				return Chords.D_FLAT_SUS;
+			case "Dbsus4":
+				return Chords.D_FLAT_SUS;
 			}
 		}
 		else if(chord.charAt(0) == 'E'){
@@ -457,6 +529,8 @@ public class Chords{
 			case "E":
 				return Chords.E;
 			case "Em":
+				return Chords.E_M;
+			case "Emin":
 				return Chords.E_M;
 			case "E6":
 				return Chords.E_6;
@@ -470,6 +544,8 @@ public class Chords{
 				return Chords.E_M_7;
 			case "Emaj7":
 				return Chords.E_MAJ_7;
+			case "EM7":
+				return Chords.E_MAJ_7;
 			case "Edim":
 				return Chords.E_DIM;
 			case "Eaug":
@@ -478,9 +554,13 @@ public class Chords{
 				return Chords.E_AUG;
 			case "Esus":
 				return Chords.E_SUS;
+			case "Esus4":
+				return Chords.E_SUS;
 			case "E#":
 				return Chords.F;
 			case "E#m":
+				return Chords.F_M;
+			case "E#min":
 				return Chords.F_M;
 			case "E#6":
 				return Chords.F_6;
@@ -494,6 +574,8 @@ public class Chords{
 				return Chords.F_M_7;
 			case "E#maj7":
 				return Chords.F_MAJ_7;
+			case "E#M7":
+				return Chords.F_MAJ_7;
 			case "E#dim":
 				return Chords.F_DIM;
 			case "E#aug":
@@ -502,9 +584,13 @@ public class Chords{
 				return Chords.F_AUG;
 			case "E#sus":
 				return Chords.F_SUS;
+			case "E#sus4":
+				return Chords.F_SUS;
 			case "Eb":
 				return Chords.E_FLAT;
 			case "Ebm":
+				return Chords.E_FLAT_M;
+			case "Ebmin":
 				return Chords.E_FLAT_M;
 			case "Eb6":
 				return Chords.E_FLAT_6;
@@ -518,6 +604,8 @@ public class Chords{
 				return Chords.E_FLAT_M_7;
 			case "Ebmaj7":
 				return Chords.E_FLAT_MAJ_7;
+			case "EbM7":
+				return Chords.E_FLAT_MAJ_7;
 			case "Ebdim":
 				return Chords.E_FLAT_DIM;
 			case "Ebaug":
@@ -526,6 +614,8 @@ public class Chords{
 				return Chords.E_FLAT_AUG;
 			case "Ebsus":
 				return Chords.E_FLAT_SUS;
+			case "Ebsus4":
+				return Chords.E_FLAT_SUS;
 			}
 		}
 		else if(chord.charAt(0) == 'F'){
@@ -533,6 +623,8 @@ public class Chords{
 			case "F":
 				return Chords.F;
 			case "Fm":
+				return Chords.F_M;
+			case "Fmin":
 				return Chords.F_M;
 			case "F6":
 				return Chords.F_6;
@@ -546,6 +638,8 @@ public class Chords{
 				return Chords.F_M_7;
 			case "Fmaj7":
 				return Chords.F_MAJ_7;
+			case "FM7":
+				return Chords.F_MAJ_7;
 			case "Fdim":
 				return Chords.F_DIM;
 			case "Faug":
@@ -554,9 +648,13 @@ public class Chords{
 				return Chords.F_AUG;
 			case "Fsus":
 				return Chords.F_SUS;
+			case "Fsus4":
+				return Chords.F_SUS;
 			case "F#":
 				return Chords.F_SHARP;
 			case "F#m":
+				return Chords.F_SHARP_M;
+			case "F#min":
 				return Chords.F_SHARP_M;
 			case "F#6":
 				return Chords.G_FLAT_6;
@@ -570,6 +668,8 @@ public class Chords{
 				return Chords.F_SHARP_M_7;
 			case "F#maj7":
 				return Chords.G_FLAT_MAJ_7;
+			case "F#M7":
+				return Chords.G_FLAT_MAJ_7;
 			case "F#dim":
 				return Chords.F_SHARP_DIM;
 			case "F#aug":
@@ -578,9 +678,13 @@ public class Chords{
 				return Chords.G_FLAT_AUG;
 			case "F#sus":
 				return Chords.G_FLAT_SUS;
+			case "F#sus4":
+				return Chords.G_FLAT_SUS;
 			case "Fb":
 				return Chords.E;
 			case "Fbm":
+				return Chords.E_M;
+			case "Fbmin":
 				return Chords.E_M;
 			case "Fb6":
 				return Chords.E_6;
@@ -594,6 +698,8 @@ public class Chords{
 				return Chords.E_M_7;
 			case "Fbmaj7":
 				return Chords.E_MAJ_7;
+			case "FbM7":
+				return Chords.E_MAJ_7;
 			case "Fbdim":
 				return Chords.E_DIM;
 			case "Fbaug":
@@ -602,6 +708,8 @@ public class Chords{
 				return Chords.E_AUG;
 			case "Fbsus":
 				return Chords.E_SUS;
+			case "Fbsus4":
+				return Chords.E_SUS;
 			}
 		}
 		else if(chord.charAt(0) == 'G'){
@@ -609,6 +717,8 @@ public class Chords{
 			case "G":
 				return Chords.G;
 			case "Gm":
+				return Chords.G_M;
+			case "Gmin":
 				return Chords.G_M;
 			case "G6":
 				return Chords.G_6;
@@ -622,6 +732,8 @@ public class Chords{
 				return Chords.G_M_7;
 			case "Gmaj7":
 				return Chords.G_MAJ_7;
+			case "GM7":
+				return Chords.G_MAJ_7;
 			case "Gdim":
 				return Chords.G_DIM;
 			case "Gaug":
@@ -630,9 +742,13 @@ public class Chords{
 				return Chords.G_AUG;
 			case "Gsus":
 				return Chords.G_SUS;
+			case "Gsus4":
+				return Chords.G_SUS;
 			case "G#":
 				return Chords.A_FLAT;
 			case "G#m":
+				return Chords.G_SHARP_M;
+			case "G#min":
 				return Chords.G_SHARP_M;
 			case "G#6":
 				return Chords.A_FLAT_6;
@@ -646,6 +762,8 @@ public class Chords{
 				return Chords.G_SHARP_M_7;
 			case "G#maj7":
 				return Chords.A_FLAT_MAJ_7;
+			case "G#M7":
+				return Chords.A_FLAT_MAJ_7;
 			case "G#dim":
 				return Chords.G_SHARP_DIM;
 			case "G#aug":
@@ -654,9 +772,13 @@ public class Chords{
 				return Chords.A_FLAT_AUG;
 			case "G#sus":
 				return Chords.A_FLAT_SUS;
+			case "G#sus4":
+				return Chords.A_FLAT_SUS;
 			case "Gb":
 				return Chords.F_SHARP;
 			case "Gbm":
+				return Chords.F_SHARP_M;
+			case "Gbmin":
 				return Chords.F_SHARP_M;
 			case "Gb6":
 				return Chords.G_FLAT_6;
@@ -670,6 +792,8 @@ public class Chords{
 				return Chords.F_SHARP_M_7;
 			case "Gbmaj7":
 				return Chords.G_FLAT_MAJ_7;
+			case "GbM7":
+				return Chords.G_FLAT_MAJ_7;
 			case "Gbdim":
 				return Chords.F_SHARP_DIM;
 			case "Gbaug":
@@ -677,6 +801,8 @@ public class Chords{
 			case "Gb+":
 				return Chords.G_FLAT_AUG;
 			case "Gbsus":
+				return Chords.G_FLAT_SUS;
+			case "Gbsus4":
 				return Chords.G_FLAT_SUS;
 			}
 		}

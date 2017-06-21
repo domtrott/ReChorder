@@ -27,7 +27,7 @@ public class ReChorder {
 	private static void refresh(){
 		try {
 			HttpRequestFactory requestFactory = HTTP_TRANSPORT.createRequestFactory();
-			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"The%20Beatles"));
+			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"Queen"));
 			request.setParser(new JsonObjectParser(JSON_FACTORY));
 			HttpHeaders headers = new HttpHeaders();
 		    headers.set("Guitarparty-Api-Key", KEY);
@@ -47,7 +47,7 @@ public class ReChorder {
 				System.out.println("No activities found.");
 			} else {
 				for (Song song : feed.getSongs()) {
-					System.out.println("Found song");
+					System.out.println("Found song: " + song.getTitle());
 					System.out.println("Number of chords: " + song.getChords().size());
 				}
 			}

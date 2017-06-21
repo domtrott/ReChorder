@@ -15,6 +15,13 @@ public class Song extends GenericJson{
 		return authors;
 	}
 	
+	@Key("title")
+	private String title;
+	
+	public String getTitle(){
+		return title;
+	}
+	
 	@Key("body")
 	private String chordString;
 
@@ -30,11 +37,27 @@ public class Song extends GenericJson{
 					int newChord = Chords.chordNumber(currentChord);
 					if(newChord == Chords.INVALID){
 						System.out.println("Invalid chord found: " + currentChord);
+//						return chords;
+					}
+					else{
+						chords.add(newChord);
+					}
+					currentChord = "";
+				}
+				else if(c == '/'){
+					isChord = false;
+					int newChord = Chords.chordNumber(currentChord);
+					if(newChord == Chords.INVALID){
+						System.out.println("Invalid chord found: " + currentChord);
 						return chords;
 					}
 					else{
 						chords.add(newChord);
 						currentChord = "";
+					}
+					while(c != ']'){
+						i++;
+						c = chordString.charAt(i);
 					}
 				}
 				else{
