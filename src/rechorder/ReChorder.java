@@ -9,12 +9,16 @@ import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonObjectParser;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.json.JsonFactory;
 
 public class ReChorder {
 
 	private static final String KEY = "c045b8ee6df977bcda033b8b2f7090ae08b93cd3";
 	private static final String URL = "http://api.guitarparty.com/v2/songs/?query=";
 	private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
+	private static final JsonFactory JSON_FACTORY = new JacksonFactory();
 	
 	public static void main(String[] args) {
 		refresh();
@@ -23,15 +27,15 @@ public class ReChorder {
 	private static void refresh(){
 		try {
 			HttpRequestFactory requestFactory = HTTP_TRANSPORT.createRequestFactory();
-			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"a"));
+			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"The%20Beatles"));
+			request.setParser(new JsonObjectParser(JSON_FACTORY));
 			HttpHeaders headers = new HttpHeaders();
 		    headers.set("Guitarparty-Api-Key", KEY);
 		    request.setHeaders(headers);
 		    HttpResponse response = request.execute();
-		    System.out.println(response.parseAsString());
+//		    System.out.println(response.parseAsString());
 		    parseResponse(response);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -43,14 +47,11 @@ public class ReChorder {
 				System.out.println("No activities found.");
 			} else {
 				for (Song song : feed.getSongs()) {
-					System.out.println();
-					for(Integer i : song.getChords()){
-						System.out.println(i);
-					}
+					System.out.println("Found song");
+					System.out.println("Number of chords: " + song.getChords().size());
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

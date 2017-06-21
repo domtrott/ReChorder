@@ -7,6 +7,7 @@ import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 
 public class Song extends GenericJson{
+	
 	@Key("authors")
 	private List<Author> authors;
 	
@@ -16,10 +17,8 @@ public class Song extends GenericJson{
 	
 	@Key("body")
 	private String chordString;
-	
-	private List<Integer> chords = chordFinder(chordString);
 
-	private List<Integer> chordFinder(String chordString) {
+	private List<Integer> chorder(String chordString) {
 		boolean isChord = false;
 		ArrayList<Integer> chords = new ArrayList<Integer>();
 		String currentChord = "";
@@ -35,6 +34,7 @@ public class Song extends GenericJson{
 					}
 					else{
 						chords.add(newChord);
+						currentChord = "";
 					}
 				}
 				else{
@@ -50,6 +50,6 @@ public class Song extends GenericJson{
 	}
 	
 	public List<Integer> getChords(){
-		return chords;
+		return chorder(chordString);
 	}
 }
