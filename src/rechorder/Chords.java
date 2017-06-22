@@ -145,6 +145,7 @@ public class Chords{
 	public static int A_FLAT_AUG = 130;
 	public static int A_FLAT_SUS = 131;
 	
+	public static int CHORD_NUMBER = 132;
 	public static int INVALID = 999;
 	
 	public static int chordNumber(String chord){
