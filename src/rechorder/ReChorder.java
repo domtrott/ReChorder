@@ -105,7 +105,7 @@ public class ReChorder {
 	private static void refresh(){
 		try {
 			HttpRequestFactory requestFactory = HTTP_TRANSPORT.createRequestFactory();
-			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"Only the good die young"));
+			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"Katy Perry"));
 			request.setParser(new JsonObjectParser(JSON_FACTORY));
 			HttpHeaders headers = new HttpHeaders();
 		    headers.set("Guitarparty-Api-Key", KEY);
@@ -152,41 +152,47 @@ public class ReChorder {
 	private static void sortProbs() {
 		for(int i = 0; i < phraseLength; i++){
 			double total = 0;
-			for(double j : posProbs[i]){
-				total += j;
-			}
 			for(int j = 0; j < posProbs[i].length; j++){
 				if(posProbs[i][j] == 0){
 					posProbs[i][j] = 0.1;
 					total += 0.1;
 				}
+				else{
+					total += posProbs[i][j];
+				}
+			}
+			for(int j = 0; j < posProbs[i].length; j++){
 				posProbs[i][j] /= total;
 			}
 		}
 		for(int i = 0; i < uniProbs.length; i++){
 			double total = 0;
-			for(double j : uniProbs[i]){
-				total += j;
-			}
 			for(int j = 0; j < uniProbs[i].length; j++){
 				if(uniProbs[i][j] == 0){
 					uniProbs[i][j] = 0.1;
 					total += 0.1;
 				}
+				else{
+					total += uniProbs[i][j];
+				}
+			}
+			for(int j = 0; j < uniProbs[i].length; j++){
 				uniProbs[i][j] /= total;
 			}
 		}
 		for(int i = 0; i < biProbs.length; i++){
 			double total = 0;
 			for(int j = 0; j < biProbs[i].length; j++){
-				for(double k : biProbs[i][j]){
-					total += k;
-				}
 				for(int k = 0; k < biProbs[i][j].length; k++){
 					if(biProbs[i][j][k] == 0){
 						biProbs[i][j][k] = 0.1;
 						total += 0.1;
 					}
+					else{
+						total += biProbs[i][j][k];
+					}
+				}
+				for(int k = 0; k < biProbs[i][j].length; k++){
 					biProbs[i][j][k] /= total;
 				}
 			}
