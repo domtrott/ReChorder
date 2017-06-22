@@ -3,6 +3,7 @@ package rechorder;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpHeaders;
@@ -22,9 +23,9 @@ public class ReChorder {
 	private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
 	private static final JsonFactory JSON_FACTORY = new JacksonFactory();
 	private static int phraseLength = 4;
-	private static int[][] uniProbs = new int[Chords.CHORD_NUMBER][Chords.CHORD_NUMBER];
-	private static int[][][] biProbs = new int[Chords.CHORD_NUMBER][Chords.CHORD_NUMBER][Chords.CHORD_NUMBER];
-	private static int[][] posProbs = new int[phraseLength][Chords.CHORD_NUMBER];
+	private static double[][] uniProbs = new double[Chords.CHORD_NUMBER][Chords.CHORD_NUMBER];
+	private static double[][][] biProbs = new double[Chords.CHORD_NUMBER][Chords.CHORD_NUMBER][Chords.CHORD_NUMBER];
+	private static double[][] posProbs = new double[phraseLength][Chords.CHORD_NUMBER];
 	
 	public static void main(String[] args) {
 		for(int i = 0; i < Chords.CHORD_NUMBER; i++){
@@ -42,19 +43,69 @@ public class ReChorder {
 		}
 		refresh();
 		ArrayList<Integer> sequence = (ArrayList<Integer>) generateSequence(8);
+		for(Integer i : sequence){
+			System.out.println("Chord: " + i);
+		}
 	}
 	
 	private static List<Integer> generateSequence(int length){
-		for(int i = 0; i < length; i++){
-			
+		ArrayList<Integer> sequence = new ArrayList<Integer>();
+		Random r = new Random();
+		
+		//First Chord
+		double p = r.nextDouble();
+		for(int i = 0; i < Chords.CHORD_NUMBER; i++){
+			if(posProbs[0][i] >= p){
+				System.out.println("Chord: " + i + ", Probability: " + posProbs[0][i]);
+				sequence.add(i);
+				break;
+			}
+			else{
+				p -= posProbs[0][i];
+			}
 		}
-		return null;
+		
+		//Second Chord
+		p = r.nextDouble();
+		double q  = r.nextDouble();
+		for(int i = 0; i < Chords.CHORD_NUMBER; i++){
+			if(posProbs[1][i] + uniProbs[sequence.get(0)][i] >= p + q){
+				System.out.println("Chord: " + i + ", Probability: " + (posProbs[1][i] + uniProbs[sequence.get(0)][i])/2);
+				sequence.add(i);
+				break;
+			}
+			else{
+				p -= posProbs[1][i];
+				q -= uniProbs[sequence.get(0)][i];
+			}
+		}
+		
+		//Other Chords
+		for(int n = 2; n < length; n++){
+			p = r.nextDouble();
+			q  = r.nextDouble();
+			double s = r.nextDouble();
+			for(int i = 0; i < Chords.CHORD_NUMBER; i++){
+				System.out.println("n: " + n + ", i: " + i);
+				if(posProbs[n%phraseLength][i] + uniProbs[sequence.get(n-1)][i] + biProbs[sequence.get(n-2)][sequence.get(n-1)][i] >= p + q + s){
+					System.out.println("Chord: " + i + ", Probability: " + (posProbs[n%phraseLength][i] + uniProbs[sequence.get(n-1)][i] + biProbs[sequence.get(n-2)][sequence.get(n-1)][i])/3);
+					sequence.add(i);
+					break;
+				}
+				else{
+					p -= posProbs[n%phraseLength][i];
+					q -= uniProbs[sequence.get(n-1)][i];
+					s -= biProbs[sequence.get(n-2)][sequence.get(n-1)][i];
+				}
+			}
+		}
+		return sequence;
 	}
 	
 	private static void refresh(){
 		try {
 			HttpRequestFactory requestFactory = HTTP_TRANSPORT.createRequestFactory();
-			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"Queen"));
+			HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(URL+"Only the good die young"));
 			request.setParser(new JsonObjectParser(JSON_FACTORY));
 			HttpHeaders headers = new HttpHeaders();
 		    headers.set("Guitarparty-Api-Key", KEY);
@@ -101,29 +152,41 @@ public class ReChorder {
 	private static void sortProbs() {
 		for(int i = 0; i < phraseLength; i++){
 			double total = 0;
-			for(int j : posProbs[i]){
+			for(double j : posProbs[i]){
 				total += j;
 			}
 			for(int j = 0; j < posProbs[i].length; j++){
+				if(posProbs[i][j] == 0){
+					posProbs[i][j] = 0.1;
+					total += 0.1;
+				}
 				posProbs[i][j] /= total;
 			}
 		}
 		for(int i = 0; i < uniProbs.length; i++){
 			double total = 0;
-			for(int j : uniProbs[i]){
+			for(double j : uniProbs[i]){
 				total += j;
 			}
 			for(int j = 0; j < uniProbs[i].length; j++){
+				if(uniProbs[i][j] == 0){
+					uniProbs[i][j] = 0.1;
+					total += 0.1;
+				}
 				uniProbs[i][j] /= total;
 			}
 		}
 		for(int i = 0; i < biProbs.length; i++){
 			double total = 0;
 			for(int j = 0; j < biProbs[i].length; j++){
-				for(int k : biProbs[i][j]){
+				for(double k : biProbs[i][j]){
 					total += k;
 				}
 				for(int k = 0; k < biProbs[i][j].length; k++){
+					if(biProbs[i][j][k] == 0){
+						biProbs[i][j][k] = 0.1;
+						total += 0.1;
+					}
 					biProbs[i][j][k] /= total;
 				}
 			}
